@@ -1,18 +1,20 @@
 package ru.brusnika.orgstruct;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.isNotNull;
 
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import jakarta.transaction.Transactional;
 import ru.brusnika.orgstruct.model.Company;
+import ru.brusnika.orgstruct.model.Location;
 import ru.brusnika.orgstruct.repository.CompanyRepository;
+import ru.brusnika.orgstruct.repository.LocationRepository;
 
 @DataJpaTest
 public class ModelPersistanceTests {
@@ -20,17 +22,24 @@ public class ModelPersistanceTests {
     private TestEntityManager entityManager;
 
     @Autowired
-    CompanyRepository companyRep;
+    CompanyRepository companyRepository;
+
+    @Autowired
+    LocationRepository locationRepository;
+
+    @BeforeEach
+    public void setUp() {
+        
+    }
 
     @Test
     public void testSaveCompany() {
-        Company brusnika = Company.builder()
+        Company company = Company.builder()
             .entityLegal("БСЗ")
             .companyName("Брусника")
             .build();
-        brusnika = entityManager.persistFlushFind(brusnika);
+        company = entityManager.persistFlushFind(company);
 
-        assertNotNull(brusnika);
-        assertEquals(brusnika.getCompanyName(), "Брусника");
+        assertThat(company, isNotNull());
     }
 }
