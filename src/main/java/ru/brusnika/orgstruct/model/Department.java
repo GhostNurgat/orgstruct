@@ -23,7 +23,7 @@ public class Department {
     @Column(name = "depart_id", columnDefinition = "BIGINT")
     private Long departmentId;
 
-    @Column(name = "depart_name")
+    @Column(name = "depart_name", nullable = true, columnDefinition = "CHARACTER(50)")
     private String departmentName;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Subdivision.class)

@@ -29,7 +29,15 @@ public class ModelPersistanceTests {
 
     @BeforeEach
     public void setUp() {
+        this.entityManager.persistAndFlush(Company.builder()
+            .entityLegal("БСЗ")
+            .companyName("Брусника")
+            .build());
         
+        this.entityManager.persistAndFlush(Location.builder()
+            .id((long) 1000)
+            .name("Екатеринбург")
+            .build());
     }
 
     @Test
@@ -38,8 +46,8 @@ public class ModelPersistanceTests {
             .entityLegal("БСЗ")
             .companyName("Брусника")
             .build();
-        company = entityManager.persistFlushFind(company);
+        Company getCompany = entityManager.find(Company.class, company.getEntityLegal());
 
-        assertThat(company, isNotNull());
+        assertNotNull(getCompany);
     }
 }

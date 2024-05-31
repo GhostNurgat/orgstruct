@@ -20,7 +20,7 @@ public class Group {
     @Column(name = "group_id", columnDefinition = "BIGINT")
     private Long groupId;
 
-    @Column(name = "group_name")
+    @Column(name = "group_name", nullable = true, columnDefinition = "CHARACTER(50)")
     private String groupName;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Department.class)

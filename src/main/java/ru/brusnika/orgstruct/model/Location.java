@@ -21,11 +21,11 @@ public class Location {
     @Column(name = "location_id", columnDefinition = "BIGINT")
     private Long id;
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false, columnDefinition = "CHARACTER(50)")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Company.class)
-    @JoinColumn(name = "EntityLegal")
+    @JoinColumn(name = "entity_legal")
     private Company company;
 
     public Location() {}

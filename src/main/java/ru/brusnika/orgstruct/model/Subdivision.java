@@ -21,7 +21,7 @@ public class Subdivision {
     @Column(name = "sub_id", columnDefinition = "BIGINT")
     private Long subId;
 
-    @Column(name = "sub_name", unique = true, nullable = false)
+    @Column(name = "sub_name", nullable = true, columnDefinition = "CHARACTER(50)")
     private String subName;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Location.class)

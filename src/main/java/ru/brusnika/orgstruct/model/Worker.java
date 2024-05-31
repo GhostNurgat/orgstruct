@@ -24,7 +24,7 @@ public class Worker {
     @JoinColumn(name = "group_id")
     private Group group;
 
-    @Column(name = "FIO")
+    @Column(name = "FIO", columnDefinition = "CHARACTER(80)")
     private String FIO;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Post.class)

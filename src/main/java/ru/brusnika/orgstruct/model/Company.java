@@ -15,10 +15,10 @@ import lombok.*;
 @Builder
 public class Company {
     @Id
-    @Column(name = "EntityLegal", columnDefinition = "CHARACTER(10)", unique = true)
+    @Column(name = "entity_legal", columnDefinition = "CHARACTER(10)")
     private String entityLegal;
 
-    @Column(nullable = false, name = "Name", unique = true)
+    @Column(nullable = false, name = "name", columnDefinition = "CHARACTER(50)")
     private String companyName;
 
     public Company() {}

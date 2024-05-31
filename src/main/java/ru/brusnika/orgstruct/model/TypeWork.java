@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
-@Table(name = "typeWorks")
+@Table(name = "type_works")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,10 +16,10 @@ import lombok.*;
 public class TypeWork {
     @Id
     @GeneratedValue
-    @Column(name = "type_id", columnDefinition = "BIGINT")
+    @Column(name = "type_id", columnDefinition = "BIGSERIAL")
     private Long typeId;
 
-    @Column(name = "type_name")
+    @Column(name = "type_name", columnDefinition = "CHARACTER(50)")
     private String typeName;
 
     public TypeWork() {}

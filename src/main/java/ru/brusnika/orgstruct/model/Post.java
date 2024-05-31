@@ -16,10 +16,10 @@ import lombok.*;
 public class Post {
     @Id
     @GeneratedValue
-    @Column(name = "post_id", columnDefinition = "BIGINT")
+    @Column(name = "post_id", columnDefinition = "BIGSERIAL")
     private Long postId;
 
-    @Column(name = "name")
+    @Column(name = "name", columnDefinition = "CHARACTER(50)")
     private String postName;
 
     public Post() {}
