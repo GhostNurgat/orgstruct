@@ -4,7 +4,7 @@ import lombok.*;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -18,14 +18,15 @@ import jakarta.persistence.Table;
 @Builder
 public class Location {
     @Id
-    @GeneratedValue
-    @Column(name = "id", columnDefinition = "BIGINT")
+    @Column(name = "location_id", columnDefinition = "BIGINT")
     private Long id;
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false, columnDefinition = "CHARACTER(50)")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "EntityLegal")
-    Company company;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Company.class)
+    @JoinColumn(name = "entity_legal")
+    private Company company;
+
+    public Location() {}
 }
