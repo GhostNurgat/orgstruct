@@ -1,11 +1,8 @@
 package ru.brusnika.orgstruct.model;
 
-import java.util.Set;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import lombok.*;
@@ -18,17 +15,11 @@ import lombok.*;
 @Builder
 public class Company {
     @Id
-    @Column(name = "EntityLegal", columnDefinition = "CHARACTER(10)", unique = true)
+    @Column(name = "entity_legal", columnDefinition = "CHARACTER(10)")
     private String entityLegal;
 
-    @Column(nullable = true, name = "Name", unique = true)
+    @Column(nullable = false, name = "name", columnDefinition = "CHARACTER(50)")
     private String companyName;
-
-    @OneToMany(mappedBy = "company")
-    private Set<Location> locations;
-
-    @OneToMany(mappedBy = "company")
-    private Set<Subdivision> subdivisions;
 
     public Company() {}
 }

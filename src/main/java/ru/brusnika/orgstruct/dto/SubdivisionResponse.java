@@ -1,0 +1,12 @@
+package ru.brusnika.orgstruct.dto;
+
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+@Data
+@Accessors(chain = true)
+public class SubdivisionResponse {
+    private Long subId;
+    private String subName;
+    private LocationResponse locationResponse;
+}

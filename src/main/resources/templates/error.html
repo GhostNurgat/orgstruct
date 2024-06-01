@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" 
+        xmlns="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/base}">
+    <head>
+        <meta charset="UTF-8">
+        <title>Error Page</title>
+    </head>
+    <body>
+        <h1>Status {{ status }}</h1>
+        <p>{{ error }}</p>
+        <p>{{ message }}</p>
+        <p>{{ path }}</p>
+    </body>
+</html>
