@@ -1,0 +1,151 @@
+@import url('/../css/font/stylesheet.css');
+
+* {
+    font-family: 'Sansation';
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #403f3f;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+}
+
+.nav-menu {
+    margin-left: 8px;
+}
+
+.nav-menu div {
+    width: 20px;
+    height: 1.5px;
+    background-color: #f2f1ef;
+    margin: 5px 0;
+}
+
+.nav-menu:hover {
+    cursor: pointer;
+}
+
+.nav-location {
+    color: white;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.5em;
+}
+
+.nav-name {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #403f3f;
+    overflow-x: hidden;
+    transition: .5s;
+    padding-top: 20px;
+}
+
+.sidebar .searchbox {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar .searchbox .search {
+    background-color: #403f3f;
+    border: 2px solid #f2f1ef;
+    border-radius: 50px;
+    width: 15rem;
+    padding-left: 8px;
+}
+
+.sidebar .searchbox .search:hover {
+    border-color: #ee3d24;
+}
+
+.sidebar .searchbox .search:focus {
+    background-color: #f2f1ef;
+}
+
+.sidebar .options {
+    margin: 10% 3% 50%;
+    list-style-type: none;
+}
+
+.sidebar .options .option-item {
+    color: #f2f1ef;
+    margin-bottom: 5%;
+    font-size: 22px;
+}
+
+.sidebar .options .option-item:hover {
+    color: #ee3d24;
+    cursor: pointer;
+}
+
+.sidebar .close-container {
+    padding: 80% 0 5% 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidebar .close-container .arrow {
+    cursor: pointer;
+    position: relative;
+    width: 80px;
+    height: 50px;
+    margin: 20px;
+}
+
+.sidebar .close-container .arrow div {
+    position: relative;
+    top: 20px;
+    width: 36px;
+    height: 1px;
+    background-color: #f2f1ef;
+    left: 0;
+    display: block;
+}
+
+.sidebar .close-container .arrow div::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    top: -5px;
+    right: 25px;
+    background-color: #f2f1ef;
+    transform: rotate(135deg);
+}
+
+.sidebar .close-container .arrow div::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    top: 5px;
+    right: 25px;
+    background-color: #f2f1ef;
+    transform: rotate(-135deg);
+}

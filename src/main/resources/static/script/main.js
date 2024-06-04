@@ -3,34 +3,16 @@ const api = {
     company: "/getCompany/"
 };
 
-let info = document.querySelector('.info');
-let structure = document.querySelector('#structure');
+let menu = document.querySelector('.nav-menu');
+let sidebar = document.querySelector('.sidebar');
+let close = document.querySelector('.close-container');
 
-let entityLegal = 'БСЗ';
+menu.addEventListener('click', (e) => {
+    e.preventDefault();
+    sidebar.style.width = "320px";
+});
 
-let store = {};
-
-const fetchCompany = async () => {
-    const response = await fetch(`${api.base}${api.company}${entityLegal}`)
-        .then(res => res.json());
-    const {companyName, entity} = response;
-    store = {
-        companyName: name,
-        entity: legal
-    };
-
-    renderComponent();
-    return response;
-}
-
-const renderComponent = () => {
-    structure.innerHTML = getContent();
-}
-
-const getContent = () => {
-    const {name, legal} = store;
-
-    return `<div class="col-sm-4">
-        <div class="structure-container">${name}</div>
-    </div>`;
-}
+close.addEventListener('click', (e) => {
+    e.preventDefault();
+    sidebar.style.width = "0";
+});

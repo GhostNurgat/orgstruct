@@ -3,34 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/src/main/resources/static/style/style.css">
-        <link rel="stylesheet" href="lib/bootstrap-5.3.3-dist/css/bootstrap-utilities.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/lib/bootstrap-5.3.3-dist/css/bootstrap.min.css">
         <title>Брусника</title>
     </head>
     <body>
-        <header>
-            <nav class="navbar bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand text-white" href="#">Брусника</a>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Поиск</button>
-                    </form>
+        <header class="header">
+            <div class="header-container">
+                <div class="nav-menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
-            </nav>
+                <div class="nav-location">Локация</div>
+                <a class="nav-name" href="#">Брусника</a>
+            </div>
         </header>
-        <main class="pm-3">
-            <div class="container text-center">
-                <div class="row justify-content-center">
-                    <div class="col-5 align-self-center">
-                        <div class="info"></div>
-                    </div>
-                </div>
-                <div class="row justify-content-center align-items-center" id="structure">
+        <div class="sidebar">
+            <div class="searchbox">
+                <input type="search" class="search" placeholder="Поиск">
+            </div>
+            <ul class="options">
+                <li class="option-item">Настройка</li>
+                <li class="option-item">Настройка</li>
+            </ul>
+            <div class="close-container">
+                <div class="arrow">
+                    <div></div>
                 </div>
             </div>
-        </main>
+        </div>
     </body>
-    <script src="lib/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-    <script src="script/main.js"></script>
+    <script src="/lib/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="/script/main.js"></script>
 </html>
