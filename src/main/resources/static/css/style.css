@@ -2,7 +2,6 @@
 
 * {
     font-family: 'Sansation';
-    box-sizing: border-box;
 }
 
 body {
@@ -31,7 +30,7 @@ body {
 
 .nav-menu div {
     width: 20px;
-    height: 1.5px;
+    height: 2px;
     background-color: #f2f1ef;
     margin: 5px 0;
 }
@@ -148,4 +147,36 @@ body {
     right: 25px;
     background-color: #f2f1ef;
     transform: rotate(-135deg);
+}
+
+.company-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 200px 0 0;
+}
+
+.company {
+    display: flex;
+    border: 3px solid #ee3d24;
+    border-radius: 80px;
+    width: 320px;
+    height: 135px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    padding: 0 0px 0 0;
+}
+
+.line {
+    border-right: 3px solid #ee3d24;
+    height: 80px;
+    padding: 0 10px 0 5px;
+}
+
+.name {
+    font-size: 40px;
+    padding: 0 5px 0 15px;
 }
