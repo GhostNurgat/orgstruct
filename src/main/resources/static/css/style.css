@@ -210,3 +210,79 @@ body {
     font-size: 25px;
 }
 
+.element:hover {
+    background-color: #ee3d24;
+    cursor: pointer;
+}
+
+.text-element:hover {
+    cursor: pointer;
+}
+
+.footer {
+    background-color: transparent;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 8vh;
+}
+
+.back-button {
+    border: 3px solid #ee3d24;
+    border-radius: 80px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.back-button:hover {
+    background-color: #403f3f;
+    color: #f2f1ef;
+}
+
+.workers-box {
+    border: 5px solid #403f3f;
+    border-radius: 80px;
+    background-color: #f2f1ef;
+    width: 22vw;
+    height: 26vh;
+}
+
+.worker-container {
+    padding-left: 25px;
+    padding-top: 10px;
+    height: 100%;
+    scroll-behavior: auto;
+}
+
+.worker {
+    display: block;
+}
+
+.post {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.post-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-line {
+    border-bottom: 1px solid #ee3d24;
+    padding: 12px 0;
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+p {
+    font-weight: 200;
+}
