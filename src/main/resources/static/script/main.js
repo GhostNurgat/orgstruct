@@ -88,8 +88,6 @@ const getCompanyComponent = () => {
 
 fetchCompanies();
 
-console.log(locations);
-
 let storeLocation = {};
 
 const fetchLocations = async () => {
@@ -125,23 +123,38 @@ backButton.addEventListener('click', (e) => {
     switch (backButton.id) {
         case '':
             elements.forEach(el => container.removeChild(el));
-            fetchCompanies();
+            renderCompany();
             break;
         case 'locations':
             elements.forEach(el => container.removeChild(el));
+            if (elLocations.length === 0) {
+                fetchLocations();
+                renderLocation();
+                info.textContent = localStorage.getItem('locations');
+                backButton.id = '';
+            }
             renderElements(elLocations);
             info.textContent = localStorage.getItem('locations');
-            fetchLocations();
-            backButton.id = null;
+            backButton.id = '';
             break;
         case 'subdivisions':
             elements.forEach(el => container.removeChild(el));
+            if (elSubdivisions.length === 0) {
+                fetchSubdivisions(localStorage.getItem('location'));
+                info.textContent = localStorage.getItem('subdivisions');
+                backButton.id = 'locations';
+            }
             renderElements(elSubdivisions);
             info.textContent = localStorage.getItem('subdivisions');
             backButton.id = 'locations';
             break;
         case 'departments':
             elements.forEach(el => container.removeChild(el));
+            if (elDepartments.length === 0) {
+                fetchDepartments(localStorage.getItem('subdivision'));
+                info.textContent = localStorage.getItem('departments');
+                backButton.id = 'subdivisions';
+            }
             renderElements(elDepartments);
             info.textContent = localStorage.getItem('departments');
             backButton.id = 'subdivisions';
@@ -149,6 +162,11 @@ backButton.addEventListener('click', (e) => {
         case 'groups':
             let workers = document.querySelector('.workers-box');
             container.removeChild(workers);
+            if (elGroups.length === 0) {
+                fetchGroups(localStorage.getItem('department'));
+                info.textContent = localStorage.getItem('groups');
+                backButton.id = 'departments';
+            }
             renderElements(elGroups);
             info.textContent = localStorage.getItem('groups');
             backButton.id = 'departments';
@@ -200,6 +218,7 @@ const renderLocation = () => {
                 fetchSubdivisions(id);
                 info.textContent = `Подразделения. ${name}`;
                 localStorage.setItem('subdivisions', info.textContent);
+                localStorage.setItem('location', id);
                 backButton.id = '';
             });
 
@@ -256,6 +275,7 @@ const renderSubdivisions = () => {
                 info.textContent = `Отдел. Подразделения "${subName}"`;
                 backButton.id = 'locations';
                 localStorage.setItem('departments', info.textContent);
+                localStorage.setItem('subdivision', subId);
             });
 
             elSubdivisions.push(element);
@@ -332,6 +352,7 @@ const renderDepartments = () => {
                 info.textContent = `Группы. Отдел "${departmentName}"`;
                 backButton.id = 'subdivisions';
                 localStorage.setItem('groups', info.textContent);
+                localStorage.setItem('department', departmentId);
             });
 
             elDepartments.push(element);
@@ -406,6 +427,8 @@ const renderGroups = () => {
                     return;
                 }
                 info.textContent = `Работники. Группы "${groupName}"`;
+                localStorage.setItem('groups', info.textContent);
+                localStorage.setItem('group', groupId);
                 backButton.id = 'groups';
             });
 
@@ -461,7 +484,7 @@ const renderWorkers = () => {
         post.classList.add('post', 'post-header');
         line.classList.add('header-line');
 
-        post.textContent = worker[i].postResponse.name;
+        post.textContent = worker[i].postResponse.postName;
 
         header.textContent = 'ФИО';
         p.textContent = worker[i].fio;
